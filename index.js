@@ -3,6 +3,9 @@ const Intern = require('./lib/Intern');
 const Manager = require('./lib/Manager');
 
 const inquirer = require('inquirer');
+const fs = require('fs');
+
+const generatePage = require('./src/page-template');
 
 const employees = []
 
@@ -61,6 +64,7 @@ function addTeamMember() {
             } else {
                 console.log("done with adding members")
                 console.log(employees)
+                createTeam()
             }
         })
 }
@@ -121,29 +125,13 @@ managerQuestions()
         // create new manager object
         let manager = new Manager(answers.managerName, answers.managerId, answers.managerEmail, answers.managerOfficeNum)
         employees.push(manager)
-
-        // function call to prompt user to add team members 
-        addTeamMember()
-        // .then(answers => {
-        //     if (answers.teamMember === 'Engineer') {
-        //         engineerQuestions()
-        //             .then(answers => {
-        //                 let engineer = new Engineer(answers.engineerName, answers.engineerId, answers.engineerEmail, answers.engineerGithub)
-        //                 employees.push(engineer)
-        //                 addTeamMember()
-        //             })
-
-        //     } else if (answers.teamMember === "Intern") {
-        //         internQuestions()
-        //             .then(answers => {
-        //                 let intern = new Intern(answers.internName, answers.internId, answers.internEmail, answers.internSchool)
-        //                 employees.push(intern)
-        //                 addTeamMember()
-        //             })
-
-        //     } else {
-        //         console.log("done with adding members")
-        //         console.log(employees)
-        //     }
-        // })
     })
+    // function call to prompt user to add team members 
+    .then(addTeamMember)
+
+
+function createTeam() {
+    fs.writeFile("./dist/team-profile.html", generatePage(employees), (err) => {
+        if (err) throw err
+    })
+}
