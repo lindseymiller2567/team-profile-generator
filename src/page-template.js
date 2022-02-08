@@ -1,8 +1,3 @@
-// const Engineer = require('./lib/Engineer');
-// const Intern = require('./lib/Intern');
-// const Manager = require('./lib/Manager');
-// const Employee = require('./lib/Employee')
-
 const genTeam = team => {
 
     const genMan = manager => {
@@ -13,9 +8,9 @@ const genTeam = team => {
         <h3>${manager.getRole()}</h3>
     </div>
     <div class="card-body">
-        <p>${manager.getId()}</p>
-        <p>${manager.getEmail()}</p>
-        <p>Office/Github/School</p>
+        <p>ID: ${manager.getId()}</p>
+        <a href="mailto:${manager.getEmail()}">Email: ${manager.getEmail()}</a>
+        <p>Office Number: ${manager.getOfficeNumber()}</p>
     </div>
     </div>`
     }
@@ -28,9 +23,9 @@ const genTeam = team => {
         <h3>${engineer.getRole()}</h3>
     </div>
     <div class="card-body">
-        <p>ID</p>
-        <p>Email</p>
-        <p>Office/Github/School</p>
+        <p>ID: ${engineer.getId()}</p>
+        <a href="mailto:${engineer.getEmail()}">Email: ${engineer.getEmail()}</a>
+        <a href="https://github.com/${engineer.getGitHub()}" target="_blank">GitHub: ${engineer.getGitHub()}</a>
     </div>
     </div>`
     }
@@ -43,23 +38,23 @@ const genTeam = team => {
         <h3>${intern.getRole()}</h3>
     </div>
     <div class="card-body">
-        <p>ID</p>
-        <p>Email</p>
-        <p>Office/Github/School</p>
+        <p>ID: ${intern.getId()}</p>
+        <a href="mailto:${intern.getEmail()}">Email: ${intern.getEmail()}</a>
+        <p>School: ${intern.getSchool()}</p>
     </div>
     </div>`
     }
 
-const employeeCards = []
+    const employeeCards = []
 
-// grabs the employeeCards array and pushes each card into it
-employeeCards.push(team.filter(employee => employee.getRole() === "Manager").map(manager => genMan(manager)))
-employeeCards.push(team.filter(employee => employee.getRole() === "Engineer").map(engineer => genEng(engineer)))
-employeeCards.push(team.filter(employee => employee.getRole() === "Intern").map(intern => genInt(intern)))
+    // grabs the employeeCards array and pushes each card into it
+    employeeCards.push(team.filter(employee => employee.getRole() === "Manager").map(manager => genMan(manager)))
+    employeeCards.push(team.filter(employee => employee.getRole() === "Engineer").map(engineer => genEng(engineer)))
+    employeeCards.push(team.filter(employee => employee.getRole() === "Intern").map(intern => genInt(intern)))
 
-return employeeCards.join("")
+    // takes the items in the array and joins them all together to become one item
+    return employeeCards.join("")
 }
-
 
 module.exports = templateData => {
 
