@@ -15,7 +15,8 @@ The screen shots below will give you an idea of how this application should work
 https://drive.google.com/file/d/1h9JOeZwVRHU6_5VFOLDru7ViW-oR8GEY/view?usp=sharing
 
 ![Screenshot](./images_for_readme/readme-screenshot-1.png) <br />
-![Screenshot](./images_for_readme/readme-screenshot-2.png)
+![Screenshot](./images_for_readme/readme-screenshot-2.png) <br />
+![Screenshot](./images_for_readme/readme-screenshot-3.png)
 
 ## Questions
 Feel free to reach out to me for any questions or comments. <br/>
