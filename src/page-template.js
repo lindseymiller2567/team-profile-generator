@@ -1,5 +1,7 @@
+// team is the array of employees that were entered in the prompts 
 const genTeam = team => {
 
+    // generates manager card
     const genMan = manager => {
         return `
     <div class="card">
@@ -15,6 +17,7 @@ const genTeam = team => {
     </div>`
     }
 
+    // generates engineer card
     const genEng = engineer => {
         return `
     <div class="card">
@@ -30,6 +33,7 @@ const genTeam = team => {
     </div>`
     }
 
+    // generates intern card
     const genInt = intern => {
         return `
     <div class="card">
@@ -47,6 +51,8 @@ const genTeam = team => {
 
     const employeeCards = []
 
+    // the filter method filters through the team array and for each role the appropriate function is called. 
+    // the map method creates a new array with the content that is returned from the function. the function is called for every item in the array.
     // grabs the employeeCards array and pushes each card into it
     employeeCards.push(team.filter(employee => employee.getRole() === "Manager").map(manager => genMan(manager)))
     employeeCards.push(team.filter(employee => employee.getRole() === "Engineer").map(engineer => genEng(engineer)))

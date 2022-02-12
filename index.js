@@ -95,7 +95,7 @@ function addTeamMember() {
 
             } else {
                 console.log("Team profile page has been created! Check the dist folder.")
-                // console.log(employees)
+                console.log(employees)
                 createTeam()
             }
         })
